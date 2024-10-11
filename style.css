@@ -1,11 +1,12 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    min-height: 200vh; /* Minimum height set to 200% of viewport height to make the page scrollable */
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: #f0f0f0;
+    height: 100vh; /* Make sure the body takes full viewport height */
+    overflow-y: auto; /* Enable vertical scrolling */
 }
 
 #container {
@@ -52,6 +53,10 @@ body {
 
 #heart-button:hover {
     background-color: #27408b; /* Darker royal blue on hover */
+}
+
+.spacer {
+    height: 150vh; /* Adjust this height to control the scrollable area */
 }
 
 .heart {
