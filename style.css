@@ -1,5 +1,6 @@
 body {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
@@ -34,6 +35,40 @@ body {
     width: 300px;
     height: auto;
     border-radius: 8px;
+}
+
+#heart-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #87ceeb; /* Sky blue color */
+    color: #fff;
+    border: none;
+    border-radius: 25px; /* Rounded edges */
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#heart-button:hover {
+    background-color: #00bfff;
+}
+
+.heart {
+    position: absolute;
+    font-size: 24px;
+    color: red;
+    animation: rise 1s ease-in-out;
+}
+
+@keyframes rise {
+    0% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-100px);
+    }
 }
 
 /* Rain Effect */
