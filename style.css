@@ -1,6 +1,5 @@
 body {
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
@@ -27,6 +26,7 @@ body {
     background-color: #000000;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    margin-bottom: 20px;
 }
 
 .image-container img {
@@ -38,6 +38,7 @@ body {
 }
 
 #heart-button {
+    display: inline-block;
     margin-top: 20px;
     padding: 10px 20px;
     font-size: 16px;
@@ -71,18 +72,4 @@ body {
     }
 }
 
-/* Rain Effect */
-.rain {
-    position: absolute;
-    width: 2px;
-    height: 10px;
-    background: rgba(0, 0, 255, 0.5);
-    bottom: 100%;
-    animation: fall linear infinite;
-}
-
-@keyframes fall {
-    to {
-        transform: translateY(100vh);
-    }
-}
+/*
