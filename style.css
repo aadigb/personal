@@ -3,7 +3,8 @@ body {
     font-family: Arial, sans-serif;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start; /* Align items at the start of the flex container */
+    flex-direction: column; /* Arrange items in a column */
     background-color: #f0f0f0;
     height: 100vh; /* Make sure the body takes full viewport height */
     overflow-y: auto; /* Enable vertical scrolling */
@@ -11,6 +12,7 @@ body {
 
 #container {
     text-align: center;
+    margin-top: 50px; /* Adjust this value to move content down */
 }
 
 .cool-font {
