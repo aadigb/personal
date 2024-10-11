@@ -11,3 +11,22 @@ function createRain() {
         rainDrop.remove();
     }, 1000);
 }
+
+const heartButton = document.getElementById('heart-button');
+heartButton.addEventListener('click', function(event) {
+    event.stopPropagation();
+    createHeart(event.pageX, event.pageY);
+});
+
+function createHeart(x, y) {
+    const heart = document.createElement('div');
+    heart.classList.add('heart');
+    heart.style.left = `${x}px`;
+    heart.style.top = `${y}px`;
+    heart.innerHTML = '❤️';
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 1000);
+}
