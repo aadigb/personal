@@ -13,17 +13,26 @@ body {
 }
 
 .cool-font {
-    font-family: 'Comic Sans MS', 'Comic Sans', cursive;
-    font-size: 48px;
-    color: #333;
+    font-family: 'Impact', 'Charcoal', sans-serif;
+    font-size: 72px;
+    color: #ff6347;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     margin-bottom: 20px;
+}
+
+.image-container {
+    display: inline-block;
+    padding: 10px;
+    background: linear-gradient(to bottom, #ffd700, #ffea00);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 .image-container img {
     width: 300px;
     height: auto;
-    border: 2px solid #333;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    border: 2px solid #ffd700;
+    border-radius: 8px;
 }
 
 /* Rain Effect */
