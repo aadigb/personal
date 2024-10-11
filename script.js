@@ -23,7 +23,7 @@ function createHeart(x, y) {
     heart.classList.add('heart');
     heart.style.left = `${x}px`;
     heart.style.top = `${y}px`;
-    heart.innerHTML = '🍆';
+    heart.innerHTML = '💋';
     document.body.appendChild(heart);
 
     setTimeout(() => {
