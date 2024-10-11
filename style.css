@@ -38,11 +38,11 @@ body {
 }
 
 #heart-button {
-    display: inline-block;
-    margin-top: 20px;
+    display: block;
+    margin: 20px auto 0; /* Center the button and add margin at the top */
     padding: 10px 20px;
     font-size: 16px;
-    background-color: #87ceeb; /* Sky blue color */
+    background-color: #4169e1; /* Royal blue color */
     color: #fff;
     border: none;
     border-radius: 25px; /* Rounded edges */
@@ -51,7 +51,7 @@ body {
 }
 
 #heart-button:hover {
-    background-color: #00bfff;
+    background-color: #27408b; /* Darker royal blue on hover */
 }
 
 .heart {
@@ -72,4 +72,18 @@ body {
     }
 }
 
-/*
+/* Rain Effect */
+.rain {
+    position: absolute;
+    width: 2px;
+    height: 10px;
+    background: rgba(0, 0, 255, 0.5);
+    bottom: 100%;
+    animation: fall linear infinite;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(100vh);
+    }
+}
