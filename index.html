@@ -6,9 +6,6 @@
     <title>aadigb.xyz</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/png" href="photo_2024-11-12_12-01-32.jpg">
-    
-    <!-- Add PDF.js CDN -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.min.js"></script>
 </head>
 <body>
     <div id="container">
@@ -17,16 +14,20 @@
             <img src="photo_2024-11-12_12-01-32.jpg" alt="Fella">
         </div>
 
-        <!-- PDF Viewer Section -->
+        <!-- Google Drive PDF Embed Section -->
         <section id="blog">
             <div class="pdf-container">
                 <h2>Base: The Future of Finance</h2>
-                <div id="pdf-viewer"></div> <!-- Container where PDF will render -->
+                <!-- Embed the Google Drive PDF directly using an iframe -->
+                <iframe 
+                    src="https://drive.google.com/file/d/1ZGrCftS7n9CNm2XtIqCa6boG-Hz5JApL/preview" 
+                    width="100%" 
+                    height="800px" 
+                    style="border: none;" 
+                    title="Base: The Future of Finance PDF Viewer">
+                </iframe>
             </div>
         </section>
     </div>
-
-    <!-- JavaScript to load PDF using PDF.js -->
-    <script src="script.js"></script>
 </body>
 </html>
