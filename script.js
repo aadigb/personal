@@ -1,5 +1,5 @@
-// URL to the Google Drive PDF using the format to access it directly
-const url = 'https://drive.google.com/uc?export=download&id=1ZGrCftS7n9CNm2XtIqCa6boG-Hz5JApL'; // Link to your Google Drive PDF
+// Google Drive PDF link formatted for PDF.js
+const url = 'https://drive.google.com/uc?export=download&id=1ZGrCftS7n9CNm2XtIqCa6boG-Hz5JApL'; // Your Google Drive PDF link
 
 // Get the container where the PDF will be rendered
 const container = document.getElementById('pdf-viewer');
