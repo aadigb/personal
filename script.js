@@ -1,34 +1,42 @@
-document.body.addEventListener('click', createRain);
+// Path to the PDF file in the public folder
+const url = '/Untitled-document.pdf';
 
-function createRain() {
-    const rainDrop = document.createElement('div');
-    rainDrop.classList.add('rain');
-    rainDrop.style.left = `${Math.random() * window.innerWidth}px`;
-    rainDrop.style.animationDuration = `${0.5 + Math.random() * 0.5}s`;
-    document.body.appendChild(rainDrop);
+// Container where the PDF will be rendered
+const container = document.getElementById('pdf-viewer');
 
-    setTimeout(() => {
-        rainDrop.remove();
-    }, 1000);
-}
+// Fetch the PDF using PDF.js
+pdfjsLib.getDocument(url).promise.then(pdf => {
+    const totalPages = pdf.numPages;
+    let currentPage = 1;
 
-const heartButton = document.getElementById('heart-button');
-if (heartButton) {  // Add check to prevent errors if the button doesn't exist
-    heartButton.addEventListener('click', function(event) {
-        event.stopPropagation();
-        createHeart(event.pageX, event.pageY);
-    });
-}
+    // Render the first page
+    renderPage(pdf, currentPage);
 
-function createHeart(x, y) {
-    const heart = document.createElement('div');
-    heart.classList.add('heart');
-    heart.style.left = `${x}px`;
-    heart.style.top = `${y}px`;
-    heart.innerHTML = '💋';
-    document.body.appendChild(heart);
+    // Function to render a page
+    function renderPage(pdf, pageNum) {
+        pdf.getPage(pageNum).then(page => {
+            const scale = 1.5; // You can adjust the scale
+            const viewport = page.getViewport({ scale: scale });
 
-    setTimeout(() => {
-        heart.remove();
-    }, 1000);
-}
+            // Create a canvas element for the page rendering
+            const canvas = document.createElement('canvas');
+            const context = canvas.getContext('2d');
+            canvas.height = viewport.height;
+            canvas.width = viewport.width;
+
+            // Clear the container and add the canvas
+            container.innerHTML = ''; // Clear the container before adding the new page
+            container.appendChild(canvas);
+
+            // Render the page on the canvas
+            const renderContext = {
+                canvasContext: context,
+                viewport: viewport
+            };
+            page.render(renderContext);
+        });
+    }
+
+    // Optional: Add page navigation controls (next/previous)
+    // If you need to add page navigation, you can create buttons to navigate through pages
+});
