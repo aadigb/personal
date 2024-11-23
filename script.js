@@ -1,10 +1,10 @@
-// Path to the PDF file in the public folder
-const url = '/Untitled-document.pdf';
+// URL to the Google Drive PDF using the format to access it directly
+const url = 'https://drive.google.com/uc?export=download&id=1ZGrCftS7n9CNm2XtIqCa6boG-Hz5JApL'; // Link to your Google Drive PDF
 
-// Container where the PDF will be rendered
+// Get the container where the PDF will be rendered
 const container = document.getElementById('pdf-viewer');
 
-// Fetch the PDF using PDF.js
+// Use PDF.js to load and render the PDF
 pdfjsLib.getDocument(url).promise.then(pdf => {
     const totalPages = pdf.numPages;
     let currentPage = 1;
@@ -12,23 +12,23 @@ pdfjsLib.getDocument(url).promise.then(pdf => {
     // Render the first page
     renderPage(pdf, currentPage);
 
-    // Function to render a page
+    // Function to render the page
     function renderPage(pdf, pageNum) {
         pdf.getPage(pageNum).then(page => {
-            const scale = 1.5; // You can adjust the scale
+            const scale = 1.5; // Adjust scale if needed
             const viewport = page.getViewport({ scale: scale });
 
-            // Create a canvas element for the page rendering
+            // Create a canvas element to render the PDF page
             const canvas = document.createElement('canvas');
             const context = canvas.getContext('2d');
             canvas.height = viewport.height;
             canvas.width = viewport.width;
 
-            // Clear the container and add the canvas
-            container.innerHTML = ''; // Clear the container before adding the new page
-            container.appendChild(canvas);
+            // Clear the container before adding the new page
+            container.innerHTML = ''; // Clear any previous content
+            container.appendChild(canvas); // Add the new canvas
 
-            // Render the page on the canvas
+            // Render the PDF page on the canvas
             const renderContext = {
                 canvasContext: context,
                 viewport: viewport
@@ -37,6 +37,6 @@ pdfjsLib.getDocument(url).promise.then(pdf => {
         });
     }
 
-    // Optional: Add page navigation controls (next/previous)
-    // If you need to add page navigation, you can create buttons to navigate through pages
+    // Optional: Implement navigation buttons (Next/Previous)
+    // You can expand this code by adding buttons to navigate between pages if needed
 });
