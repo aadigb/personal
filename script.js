@@ -13,10 +13,12 @@ function createRain() {
 }
 
 const heartButton = document.getElementById('heart-button');
-heartButton.addEventListener('click', function(event) {
-    event.stopPropagation();
-    createHeart(event.pageX, event.pageY);
-});
+if (heartButton) {  // Add check to prevent errors if the button doesn't exist
+    heartButton.addEventListener('click', function(event) {
+        event.stopPropagation();
+        createHeart(event.pageX, event.pageY);
+    });
+}
 
 function createHeart(x, y) {
     const heart = document.createElement('div');
