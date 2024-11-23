@@ -6,6 +6,9 @@
     <title>aadigb.xyz</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/png" href="photo_2024-11-12_12-01-32.jpg">
+    
+    <!-- Add the PDF.js CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.min.js"></script>
 </head>
 <body>
     <div id="container">
@@ -18,18 +21,12 @@
         <section id="blog">
             <div class="pdf-container">
                 <h2>Base: The Future of Finance</h2>
-                <iframe 
-                    src="/Untitled-document.pdf" 
-                    width="100%" 
-                    height="800px" 
-                    style="border: none;"
-                    title="Base: The Future of Finance PDF Viewer">
-                </iframe>
+                <div id="pdf-viewer"></div>
             </div>
         </section>
     </div>
 
-    <!-- Add JavaScript in a script tag -->
+    <!-- Add JavaScript in a separate file -->
     <script src="script.js"></script>
 </body>
 </html>
