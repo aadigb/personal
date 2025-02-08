@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const sendBtn = document.getElementById("send-btn");
 
     const VENICE_API_KEY = "qNHgGGkwlhGw_uVLC7Px9hdRpIEaWt1P8DQ2_zIGm8";
-    const VENICE_API_URL = "https://api.venice.ai/v1/chat/completions";
+    const VENICE_API_URL = "https://api.venice.ai/api/v1/chat/completions"; // Corrected URL
 
     function appendMessage(sender, message) {
         const messageElement = document.createElement("div");
@@ -29,16 +29,25 @@ document.addEventListener("DOMContentLoaded", function () {
                     "Authorization": `Bearer ${VENICE_API_KEY}`
                 },
                 body: JSON.stringify({
-                    model: "gpt-4",
-                    messages: [{ role: "user", content: message }]
+                    model: "default", // Venice API uses "default" if you are unsure of the model
+                    messages: [{ role: "user", content: message }],
+                    venice_parameters: {
+                        include_venice_system_prompt: false // Disables Venice's default prompts
+                    }
                 })
             });
 
             const data = await response.json();
-            const botReply = data.choices[0]?.message?.content || "Sorry, I couldn't understand that.";
-            appendMessage("bot", botReply);
+            console.log("API Response:", data); // Debugging
+
+            if (response.ok) {
+                const botReply = data.choices?.[0]?.message?.content || "Sorry, I couldn't understand that.";
+                appendMessage("bot", botReply);
+            } else {
+                appendMessage("bot", `API Error: ${data.error?.message || "Unknown error"}`);
+            }
         } catch (error) {
-            console.error("Error:", error);
+            console.error("Fetch Error:", error);
             appendMessage("bot", "Error connecting to Venice AI.");
         }
     }
